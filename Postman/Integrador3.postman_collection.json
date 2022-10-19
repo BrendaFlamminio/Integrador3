@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "8ff52d29-add5-46fb-ba87-a0648e87e926",
+		"name": "Integrador3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dar de alta un estudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n   \"nro_libreta\":101,\r\n   \"nombre\": \"Mirta\",\r\n   \"apellido\":\"Gomez\",\r\n   \"edad\": 35,\r\n   \"genero\": \"Femenino\",\r\n   \"dni\": 38154782,\r\n   \"ciudad_residencia\":\"Tandil\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						""
+					],
+					"query": [
+						{
+							"key": "nro_libreta",
+							"value": "101",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Mirta",
+							"disabled": true
+						},
+						{
+							"key": "apellido",
+							"value": "Gomez",
+							"disabled": true
+						},
+						{
+							"key": "edad",
+							"value": "35",
+							"disabled": true
+						},
+						{
+							"key": "genero",
+							"value": "Femenino",
+							"disabled": true
+						},
+						{
+							"key": "dni",
+							"value": "38154782",
+							"disabled": true
+						},
+						{
+							"key": "cuidad_residencia",
+							"value": "Tandil",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matricular un estudiante en una carrera",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estudiante\": {\r\n        \"nro_libreta\": 78,\r\n        \"nombre\": \"Clark\",\r\n        \"apellido\": \"Gilmore\",\r\n        \"edad\": 30,\r\n        \"genero\": \"Masculino\",\r\n        \"dni\": 19972115,\r\n        \"ciudad_residencia\": \"Detroit\"\r\n    },\r\n    \"carrera\":{\r\n        \"carrera_id\":1,\r\n        \"nombre\": \"Tudai\"\r\n    }, \r\n    \"fecha_inscripcion\": \"2022-10-19\",\r\n    \"fecha_graduacion\": null,\r\n    \"finalizo\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/matriculas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"matriculas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recuperar todos los estudiantes, y especificar algún criterio de ordenamiento simple (edad DESC).",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/order/edad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"order",
+						"edad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recuperar un estudiante, en base a su número de libreta universitaria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/nrolibreta/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"nrolibreta",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recuperar todos los estudiantes, en base a su género",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/genero/Masculino",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"genero",
+						"Masculino"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recuperar las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/carreras/inscriptos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carreras",
+						"inscriptos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/carrera/Tudai/Quimbaya",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"carrera",
+						"Tudai",
+						"Quimbaya"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reporte carreras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/carreras/reporte",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carreras",
+						"reporte"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
